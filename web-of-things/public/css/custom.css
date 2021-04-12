@@ -1,0 +1,61 @@
+h1, h2  {
+    color: rgb(109, 229, 250);
+}
+
+h3, h4 {
+    color: rgb(109, 229, 250);
+}
+
+p, span {
+    color: rgb(255, 255, 255)
+}
+
+li, ul {
+    color: rgb(109, 96, 88)
+}
+
+a {
+    color: rgb(250, 184, 109);
+}
+
+.list-group  {
+    background-color: black 
+}
+
+.list-group-mine .list-group-item {
+    background-color: #f1f9fb;
+    border-top: 1px solid #0091b5;
+    border-left-color: rgb(216, 27, 27);
+    border-right-color: #fff;
+  }
+  
+  .list-group-mine .list-group-item:hover {
+    background-color: red;
+  }
+
+  
+
+.list-group-item{
+    background:rgb(87, 87, 87);
+    }
+
+#myChart {
+    background-color: rgb(247, 242, 228);
+}
+
+.link {
+   color: rgb(250, 184, 109);
+}
+
+.link:hover {
+    color: rgb(206, 78, 78);
+}
+
+hr {
+   
+    background-color: rgb(116, 116, 116);
+}
+
+.value {
+    color: rgb(0, 255, 64);
+}

@@ -1,0 +1,27 @@
+<!--From the Wot book !-->
+
+<h2>List of properties</h2>
+
+
+					{{#each resData}}
+					<hr>
+					<h3><a href="/properties/{{this.id}}{{../req.qp}}">{{this.name}}</a></h3>
+					<p>{{this.description}}</p>
+
+					<ul class="list-group">
+						
+						{{#each this.values}}
+						<li  class="list-group-item">
+						<span  class="badge">{{@key}}</span>
+						<span class="value value-{{@key}}">{{this}}</span>
+						
+						</li>
+						{{/each}}
+
+					</ul>
+
+					{{/each}}
+
+<br>
+<canvas id="myChart" width="250" height="150"></canvas>
+<script type="text/javascript" src="/js/main.js"></script>					
