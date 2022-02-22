@@ -7,11 +7,7 @@
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@gitlab.lnu.se:1dv527/student/gf222cy/web-of-things.git"
-  },
-  "author": "gf222cy",
+  "author": "GusFors",
   "license": "MIT",
   "dependencies": {
     "chart.js": "^2.9.3",
