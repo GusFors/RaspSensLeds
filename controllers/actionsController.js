@@ -14,20 +14,20 @@ actionController.getActions = async (req, res, next) => {
     if (req.accepts('html')) {
       res.render('actions/actions', { req: req, resData })
     } else {
-      res.status(200).json([{
-
-        id: 'ledMessage',
-        name: 'Change LED message',
-        links: {
-          title: 'Change LED message',
-          link: '/actions/ledmessage'
-        }
-
-      }])
+      res.status(200).json([
+        {
+          id: 'ledMessage',
+          name: 'Change LED message',
+          links: {
+            title: 'Change LED message',
+            link: '/actions/ledmessage',
+          },
+        },
+      ])
     }
   } catch (err) {
     res.status(500).json({
-      message: 'Internal server error'
+      message: 'Internal server error',
     })
   }
 }
@@ -43,7 +43,7 @@ actionController.postLedMessage = async (req, res, next) => {
   } catch (err) {
     console.log(err.message)
     res.status(500).json({
-      message: 'Internal server error'
+      message: 'Internal server error',
     })
   }
 }
@@ -60,7 +60,7 @@ actionController.getLedMessage = async (req, res, next) => {
     }
   } catch (err) {
     res.status(500).json({
-      message: 'Internal server error'
+      message: 'Internal server error',
     })
   }
 }

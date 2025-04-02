@@ -10,29 +10,28 @@ rootController.getRoot = async (req, res, next) => {
       description: 'A simple WoT-connected Raspberry Pi providing sensor data and LED message for the WoT and course 1dv527',
       tags: ['raspberry', 'pi', 'WoT', 'SenseHAT'],
       links: {
-
         properties: {
           link: '/properties',
-          title: 'List of properties'
+          title: 'List of properties',
         },
         actions: {
           link: '/actions',
-          title: 'Actions of this thing'
+          title: 'Actions of this thing',
         },
         type: {
           link: 'http://model.webofthings.io/',
-          title: 'Instance type of this PI'
+          title: 'Instance type of this PI',
         },
         ui: {
           link: '/',
-          title: 'User interface'
+          title: 'User interface',
         },
         model: {
           link: '/model',
-          title: 'Full model of this thing (JSON)'
-        }
+          title: 'Full model of this thing (JSON)',
+        },
       },
-      customFields: { port: 9000 }
+      customFields: { port: 9000 },
     }
 
     res.links({
@@ -41,7 +40,7 @@ rootController.getRoot = async (req, res, next) => {
       actions: '/actions/',
       things: '/things/',
       type: 'http://model.webofthings.io/',
-      ui: '/properties'
+      ui: '/properties',
     })
 
     if (req.accepts('html')) {
@@ -52,8 +51,7 @@ rootController.getRoot = async (req, res, next) => {
   } catch (err) {
     console.log(err.message)
     res.status(500).json({
-      message: 'Internal server error'
-
+      message: 'Internal server error',
     })
   }
 }

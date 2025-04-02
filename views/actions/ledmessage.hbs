@@ -1,5 +1,3 @@
-<!--From the Wot book !-->
-
 {{#if resData.name}}
 <h2>{{resData.name}}</h2>
 {{else}}
@@ -7,19 +5,12 @@
 {{/if}}
 
 <p>{{resData.description}}</p>
-
 <p><b>Tags:</b> {{resData.tags}}</p>
-
 <h3>Values</h3>
-
 
 {{#each resData.values}}
 <hr>
 <h4>["{{@key}}"] - {{this.name}}</h4>
 <p><em>{{this.description}}</em></p>
 <p>type: {{this.type}}</p>
-
-
-
-
 {{/each}}

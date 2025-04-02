@@ -8,14 +8,10 @@ module.exports = {
       t: {
         name: 'Temperature sensor',
         description: 'The temperature in celsius',
-        unit: 'celsius'
-      }
+        unit: 'celsius',
+      },
     },
-    tags: [
-      'sensor',
-      'public',
-      'indoors'
-    ]
+    tags: ['sensor', 'public', 'indoors'],
   },
   humidity: {
     name: 'Humidity Sensor',
@@ -24,14 +20,10 @@ module.exports = {
       h: {
         name: 'Humidity',
         description: 'Percentage of Humidity',
-        unit: 'percent'
-      }
+        unit: 'percent',
+      },
     },
-    tags: [
-      'sensor',
-      'public',
-      'indoor'
-    ]
+    tags: ['sensor', 'public', 'indoor'],
   },
   pressure: {
     name: 'Pressure Sensor',
@@ -40,14 +32,9 @@ module.exports = {
       p: {
         name: 'Pressure',
         description: 'The pressure in millibars',
-        unit: 'millibar'
-      }
+        unit: 'millibar',
+      },
     },
-    tags: [
-      'sensor',
-      'public',
-      'indoor'
-    ]
-  }
-
+    tags: ['sensor', 'public', 'indoor'],
+  },
 }

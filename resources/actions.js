@@ -13,19 +13,14 @@ var Actions = {
           message: {
             name: 'LED message',
             type: 'string',
-            required: true
-          }
+            required: true,
+          },
         },
-        tags: [
-          'LED',
-          'public',
-          'message'
-        ],
-        data: [{ message: '' }]
-      }
-    }
-  }
-
+        tags: ['LED', 'public', 'message'],
+        data: [{ message: '' }],
+      },
+    },
+  },
 }
 
 module.exports = Actions

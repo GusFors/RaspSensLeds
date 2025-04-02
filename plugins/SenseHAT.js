@@ -9,8 +9,8 @@ senseHat.readTemperature = () => {
   return IMU.getValueSync().temperature
 }
 
-senseHat.readTempAsync = async => {
-  return new Promise(resolve => {
+senseHat.readTempAsync = (async) => {
+  return new Promise((resolve) => {
     IMU.getValue((err, data) => {
       if (err !== null) {
         console.error('sensor data error: ', err)
@@ -20,8 +20,8 @@ senseHat.readTempAsync = async => {
   })
 }
 
-senseHat.readHumidityAsync = async => {
-  return new Promise(resolve => {
+senseHat.readHumidityAsync = (async) => {
+  return new Promise((resolve) => {
     IMU.getValue((err, data) => {
       if (err !== null) {
         console.error('sensor data error: ', err)
@@ -32,8 +32,8 @@ senseHat.readHumidityAsync = async => {
   })
 }
 
-senseHat.readPressureAsync = async => {
-  return new Promise(resolve => {
+senseHat.readPressureAsync = (async) => {
+  return new Promise((resolve) => {
     IMU.getValue((err, data) => {
       if (err !== null) {
         console.error('sensor data error: ', err)

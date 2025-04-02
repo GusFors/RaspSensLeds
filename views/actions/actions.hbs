@@ -1,12 +1,8 @@
-
 <div>
-    <h2>{{resData.title}}</h2>
-
-
-					{{#each resData.resources}}
-					<hr>
-					<h3><a href="/actions/{{this.id}}{{../req.qp}}">{{this.name}}</a></h3>
-					<p>{{this.description}}</p>
-
-					{{/each}}
+	<h2>{{resData.title}}</h2>
+	{{#each resData.resources}}
+	<hr>
+	<h3><a href="/actions/{{this.id}}{{../req.qp}}">{{this.name}}</a></h3>
+	<p>{{this.description}}</p>
+	{{/each}}
 </div>

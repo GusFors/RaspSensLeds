@@ -1,4 +1,5 @@
 const webS = new window.WebSocket('ws://192.168.1.204:9000/properties')
+
 webS.onopen = () => {
   console.log('connected!')
 }
@@ -24,24 +25,27 @@ const chart = new window.Chart(ctx, {
         label: 'Pressure (millibars)',
         data: [],
         fill: false,
-        borderColor: 'rgba(0, 255, 255, 0.8)'
-      }],
-    labels: []
+        borderColor: 'rgba(0, 255, 255, 0.8)',
+      },
+    ],
+    labels: [],
   },
   options: {
     scales: {
-      yAxes: [{
-        ticks: {
-          suggestedMin: 500,
-          suggestedMax: 1300
-        }
-      }]
+      yAxes: [
+        {
+          ticks: {
+            suggestedMin: 500,
+            suggestedMax: 1300,
+          },
+        },
+      ],
     },
-    fill: false
-  }
+    fill: false,
+  },
 })
 
-function addData (chart, label, pressData) {
+function addData(chart, label, pressData) {
   chart.data.labels.push(label)
   chart.data.datasets[0].data.push(pressData)
 

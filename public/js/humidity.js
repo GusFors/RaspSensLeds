@@ -1,4 +1,5 @@
 const webS = new window.WebSocket('ws://192.168.1.204:9000/properties')
+
 webS.onopen = () => {
   console.log('connected!')
 }
@@ -24,24 +25,27 @@ const chart = new window.Chart(ctx, {
         label: 'Humidity (%)',
         data: [],
         fill: false,
-        borderColor: 'rgba(0, 0, 255, 0.8)'
-      }],
-    labels: []
+        borderColor: 'rgba(0, 0, 255, 0.8)',
+      },
+    ],
+    labels: [],
   },
   options: {
     scales: {
-      yAxes: [{
-        ticks: {
-          suggestedMin: 10,
-          suggestedMax: 50
-        }
-      }]
+      yAxes: [
+        {
+          ticks: {
+            suggestedMin: 10,
+            suggestedMax: 50,
+          },
+        },
+      ],
     },
-    fill: false
-  }
+    fill: false,
+  },
 })
 
-function addData (chart, label, humiData) {
+function addData(chart, label, humiData) {
   chart.data.labels.push(label)
   chart.data.datasets[0].data.push(humiData)
 

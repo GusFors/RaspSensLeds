@@ -1,30 +1,17 @@
-<!--From the Wot book !-->
 <div>
-
     <h2>{{resource.name}}</h2>
-
     <p>{{resource.description}}</p>
-
     <p><b>Tags:</b> {{resource.tags}}</p>
-
     <h3>Values</h3>
-
-
     {{#each resource.values}}
-
     <hr>
     <h4>["{{@key}}"] - {{this.name}}</h4>
     <p><em>{{this.description}}</em></p>
     <p>type: {{this.type}}</p>
     <p>unit: {{this.unit}}</p>
-
     {{/each}}
-
     <p class="value" >Value: {{data.t}}</p>
     <p class="timestamp">Timestamp: {{data.timestamp}}</p>
-
-
-
 </div>
 <br>
 <canvas id="myChart" width="250" height="150"></canvas>

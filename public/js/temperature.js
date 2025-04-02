@@ -1,4 +1,5 @@
 const webS = new window.WebSocket('ws://192.168.1.204:9000/properties')
+
 webS.onopen = () => {
   console.log('connected!')
 }
@@ -24,24 +25,27 @@ const chart = new window.Chart(ctx, {
         label: 'Temperature (°C)',
         data: [],
         fill: false,
-        borderColor: 'rgba(255, 0, 0, 0.8)'
-      }],
-    labels: []
+        borderColor: 'rgba(255, 0, 0, 0.8)',
+      },
+    ],
+    labels: [],
   },
   options: {
     scales: {
-      yAxes: [{
-        ticks: {
-          suggestedMin: 10,
-          suggestedMax: 50
-        }
-      }]
+      yAxes: [
+        {
+          ticks: {
+            suggestedMin: 10,
+            suggestedMax: 50,
+          },
+        },
+      ],
     },
-    fill: false
-  }
+    fill: false,
+  },
 })
 
-function addData (chart, label, tempData) {
+function addData(chart, label, tempData) {
   chart.data.labels.push(label)
   chart.data.datasets[0].data.push(tempData)
 

@@ -1,4 +1,3 @@
-
 // Main starting point
 
 'use strict'
@@ -19,10 +18,13 @@ app.use(morgan('dev'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-app.engine('hbs', hbs.express4({
-  defaultLayout: path.join(__dirname, 'views', 'layouts', 'default'),
-  partialsDir: path.join(__dirname, 'views', 'partials')
-}))
+app.engine(
+  'hbs',
+  hbs.express4({
+    defaultLayout: path.join(__dirname, 'views', 'layouts', 'default'),
+    partialsDir: path.join(__dirname, 'views', 'partials'),
+  })
+)
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'views'))
 
@@ -46,15 +48,17 @@ app.use((err, req, res, next) => {
   res.json({ message: err.message || 'Internal Server Error' })
 })
 
-const server = app.listen(process.env.PORT, () =>
-  console.log(`Listening on port ${process.env.PORT}!`)
-)
+const server = app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}!`))
 
 // optional self signed https server
-https.createServer({
-  key: fs.readFileSync('./cert/abels-key.pem'),
-  cert: fs.readFileSync('./cert/abels-cert.pem')
-}, app)
+https
+  .createServer(
+    {
+      key: fs.readFileSync('./cert/abels-key.pem'),
+      cert: fs.readFileSync('./cert/abels-cert.pem'),
+    },
+    app
+  )
   .listen(8000)
 
 // Websockets
@@ -63,10 +67,9 @@ const messageResource = require('./resources/actions')
 const wss = new websocket.Server({ server })
 app.on('upgrade', wss.handleUpgrade)
 
-wss.on('connection', function connection (ws) {
+wss.on('connection', function connection(ws) {
   console.log('new ws connection')
-  ws.on('message', function incoming (message) {
-  })
+  ws.on('message', function incoming(message) {})
 })
 
 wss.broadcast = (data) => {
@@ -78,13 +81,15 @@ wss.broadcast = (data) => {
 }
 
 setInterval(async () => {
-  wss.broadcast(JSON.stringify({
-    temp: await sensor.readTempAsync(),
-    humi: await sensor.readHumidityAsync(),
-    press: await sensor.readPressureAsync(),
-    message: messageResource.actionData.resources.ledMessage.data[0].message,
-    timestamp: new Date().toJSON()
-  }))
+  wss.broadcast(
+    JSON.stringify({
+      temp: await sensor.readTempAsync(),
+      humi: await sensor.readHumidityAsync(),
+      press: await sensor.readPressureAsync(),
+      message: messageResource.actionData.resources.ledMessage.data[0].message,
+      timestamp: new Date().toJSON(),
+    })
+  )
 }, 3000)
 
 module.exports.broadcast = wss.broadcast

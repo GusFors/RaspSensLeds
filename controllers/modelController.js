@@ -13,43 +13,38 @@ modelController.getModel = async (req, res, next) => {
       id: 'https://25331e5e.ngrok.io',
       name: 'My WoT Raspberry PI sensor and LED station',
       description: 'A simple WoT-connected Raspberry Pi providing sensor data and LED message for the WoT and course 1dv527',
-      tags: [
-        'raspberry',
-        'pi',
-        'WoT',
-        'SenseHAT'
-      ],
+      tags: ['raspberry', 'pi', 'WoT', 'SenseHAT'],
       customFields: {
-        port: 9000
+        port: 9000,
       },
       links: {
         product: {
           link: 'https://www.raspberrypi.org/products/raspberry-pi-4-model-b/',
-          title: 'Product this Web Thing is based on'
+          title: 'Product this Web Thing is based on',
         },
         properties: {
           link: '/properties',
           title: 'List of Properties',
-          resources: sensorResource
+          resources: sensorResource,
         },
         actions: actionResource,
         type: {
           link: 'http://model.webofthings.io/',
-          title: 'Instance type of the Pi'
+          title: 'Instance type of the Pi',
         },
         help: {
           link: '/',
-          title: 'Documentation'
+          title: 'Documentation',
         },
         ui: {
           link: '/properties',
-          title: 'User Interface'
-        }
-      }
+          title: 'User Interface',
+        },
+      },
     })
   } catch (err) {
     res.status(500).json({
-      message: 'Internal server error'
+      message: 'Internal server error',
     })
   }
 }

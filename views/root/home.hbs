@@ -1,11 +1,8 @@
-<!--From the Wot book !-->
-
 <h2>Metadata</h2>
 <p>ID: <span property="id">{{resData.id}}</span></p>
 <p>Name: <span property="name">{{resData.name}}</span></p>
 <p>Description: <span property="description">{{resData.description}}</span></p>
 <p>Tags: <span property="tags">{{resData.tags}}</span></p>
-
 <p>Root URL: <a property="url" href="{{resData.id}}">{{resData.id}}</a></p>
 
 <h3>Custom Fields</h3>
@@ -14,15 +11,12 @@
 {{/each}}
 
 <h3>Model</h3>
-
 <div>
     <a href="model/{{req.qp}}">View Full Model</a> <span>of this Web Thing (JSON).</span>
 </div>
-
 <hr>
 
 <h2>Resources</h2>
-
 <ul>
     {{#each resData.links}}
     <li property="links" typeof="{{@key}}"><a property="url" href="{{this.link}}{{../req.qp}}"><span class="link"

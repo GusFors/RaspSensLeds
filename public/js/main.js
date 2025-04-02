@@ -1,6 +1,5 @@
-console.log('hello')
 const webS = new window.WebSocket('ws://192.168.1.204:9000')
-// const webS = new window.WebSocket('wss://25331e5e.ngrok.io/properties')
+
 webS.onopen = () => {
   console.log('connected!')
 }
@@ -16,7 +15,7 @@ webS.onmessage = (event) => {
   document.querySelector('.value-p').innerText = data.press
   document.querySelector('.value-message').innerText = data.message
 
-  document.querySelectorAll('.value-timestamp').forEach(element => {
+  document.querySelectorAll('.value-timestamp').forEach((element) => {
     element.innerText = data.timestamp
   })
   addData(chart, data.timestamp.substring(11, 19), data.temp, data.humi, data.press)
@@ -32,38 +31,39 @@ const chart = new window.Chart(ctx, {
         label: 'Temperature (°C)',
         data: [],
         fill: false,
-        borderColor: 'rgba(255, 0, 0, 0.8)'
-      }, {
-
+        borderColor: 'rgba(255, 0, 0, 0.8)',
+      },
+      {
         label: 'Humidity (%)',
         fill: false,
         borderColor: 'rgba(0, 0, 255, 0.8)',
-        data: []
-
-      }, {
-
+        data: [],
+      },
+      {
         label: 'Pressure  (Microbars)',
         fill: false,
         borderColor: 'rgba(0, 255, 255, 0.8)',
-        data: []
-
-      }],
-    labels: []
+        data: [],
+      },
+    ],
+    labels: [],
   },
   options: {
     scales: {
-      yAxes: [{
-        ticks: {
-          suggestedMin: 10,
-          suggestedMax: 50
-        }
-      }]
+      yAxes: [
+        {
+          ticks: {
+            suggestedMin: 10,
+            suggestedMax: 50,
+          },
+        },
+      ],
     },
-    fill: false
-  }
+    fill: false,
+  },
 })
 
-function addData (chart, label, tempData, humiData, pressData) {
+function addData(chart, label, tempData, humiData, pressData) {
   chart.data.labels.push(label)
   chart.data.datasets[0].data.push(tempData)
   chart.data.datasets[1].data.push(humiData)
